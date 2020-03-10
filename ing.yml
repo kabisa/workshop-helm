@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingres-without-host-routing
+spec:
+  rules:
+  - http:
+    # leaving out host to match on any
+    # host: example.org
+      paths:
+      - path: /
+        backend:
+          serviceName: prometheus-grafana
+          servicePort: 80
